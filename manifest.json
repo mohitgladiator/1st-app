@@ -2,7 +2,7 @@
   "name": "Journal App",
   "short_name": "Journal",
   "start_url": "1st%20app/index.html",   
-  "scope": "/<repo-name>/",                 
+  "scope": "1st%20app",                 
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
