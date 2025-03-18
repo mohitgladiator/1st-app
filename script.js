@@ -41,20 +41,23 @@ document.addEventListener("DOMContentLoaded", function() {
         let randomMessage = messages[Math.floor(Math.random() * messages.length)];
         document.getElementById("birthdayMessage").textContent = randomMessage;
     });
-});
 
-form.addEventListener('submit', (e) => {
-	e.preventDefault();
-	const userInput = codeInput.value.trim();
-	if (userInput === secretCode) {
-		resultDiv.innerHTML = 'Baby';
-		window.location.href = nextPageUrl; // Redirect to new page
-	} else {
-		resultDiv.innerHTML = 'LESSSSSSSS GOOOOOOOOOO!!!!!!';
-	}
+    // 🎯 Form handling
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const userInput = codeInput.value.trim();
+        if (userInput === secretCode) {
+            resultDiv.innerHTML = 'Baby';
+            window.location.href = nextPageUrl; // Redirect to new page
+        } else {
+            resultDiv.innerHTML = 'LESSSSSSSS GOOOOOOOOOO!!!!!!';
+        }
+    });
+
+    // 🚀 Service Worker Registration (with path correction)
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/1st-app/service-worker.js')  // Ensure correct path
+            .then((reg) => console.log('Service Worker Registered ✅', reg))
+            .catch((error) => console.error('Service Worker Registration Failed ❌', error));
+    }
 });
-if ('serviceWorker' in navigator) {
-	navigator.serviceWorker.register('/service-worker.js')
-	  .then(() => console.log('Service Worker Registered'))
-	  .catch((error) => console.log('Service Worker Registration Failed:', error));
-  }
