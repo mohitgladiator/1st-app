@@ -1,8 +1,8 @@
 {
   "name": "Journal App",
   "short_name": "Journal",
-  "start_url": "1st-app/index.html",    /* 👈 GitHub Pages URL */
-  "scope": "/<repo-name>/",                  /* 👈 Set the correct scope */
+  "start_url": "1st%20app/index.html",   
+  "scope": "/<repo-name>/",                 
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
