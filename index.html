@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Happy Birthday 🎉</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.1"></script> <!-- Confetti -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="script.js" defer>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎂 Happy Birthday, <span id="displayName"></span>! 🎉</h1>
+        <p>You're officially <span id="yearsOld"></span> years, <span id="daysOld"></span> days old! 🕰️</p>
+        <p>That’s <span id="hoursOld"></span> hours and <span id="secondsOld"></span> seconds of awesomeness! 🎈</p>
+
+        <p>Your Date of Birth: <span id="displayDOB"></span></p>
+
+        <div class="special-message">
+            <p id="birthdayMessage">💖 Click the button for a special message! 💖</p>
+            <button id="messageButton">🎁 Open Surprise</button>
+        </div>
+
+        <div class="btn">
+            <a id="yesButton" href="yes.html">Yes</a>
+            <a id="noButton" href="no1.html">No</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let name = localStorage.getItem("userName") || "Guest";
+            let dob = localStorage.getItem("userDOB");
+
+            document.getElementById("displayName").textContent = name;
+            document.getElementById("displayDOB").textContent = dob || "Not provided";
+
+            if (dob) {
+                let birthDate = new Date(dob.split("-").reverse().join("-"));
+                let now = new Date();
+                let ageMilliseconds = now - birthDate;
+                
+                let years = Math.floor(ageMilliseconds / (1000 * 60 * 60 * 24 * 365.25));
+                let days = Math.floor(ageMilliseconds / (1000 * 60 * 60 * 24));
+                let hours = Math.floor(ageMilliseconds / (1000 * 60 * 60));
+                let seconds = Math.floor(ageMilliseconds / 1000);
+
+                document.getElementById("yearsOld").textContent = years;
+                document.getElementById("daysOld").textContent = days;
+                document.getElementById("hoursOld").textContent = hours;
+                document.getElementById("secondsOld").textContent = seconds;
+            }
+
+            // 🎊 Confetti effect on load
+            setTimeout(() => {
+                confetti({
+                    particleCount: 150,
+                    spread: 100
+                });
+            }, 500);
+
+            // 🎁 Surprise Message
+            document.getElementById("messageButton").addEventListener("click", function() {
+                let messages = [
+                    "🎈 You are an amazing person, and today is all about you!",
+                    "🎂 May your day be as bright and beautiful as your smile!",
+                    "🎁 Sending you all the happiness and love on your special day!",
+                    "💖 You are one in a million, and today we celebrate YOU!",
+                    "🎉 Happy Birthday! May this year bring you endless joy!"
+                ];
+                let randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                document.getElementById("birthdayMessage").textContent = randomMessage;
+            });
+        });
+    </script>
+
+</body>
+</html>
