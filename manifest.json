@@ -1,20 +1,19 @@
 {
-  "name": "My Journal App",
+  "name": "Journal App",
   "short_name": "Journal",
-  "start_url": "/index.html",
-  "scope": "/",
+  "start_url": "1st-app/index.html",    /* 👈 GitHub Pages URL */
+  "scope": "/<repo-name>/",                  /* 👈 Set the correct scope */
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#6200ee",
-  "description": "A journal app to log daily activities and thoughts.",
+  "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icon-512.png",
+      "src": "icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
